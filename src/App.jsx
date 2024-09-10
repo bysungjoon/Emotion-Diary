@@ -5,6 +5,8 @@ import Diary from "./pages/Diary";
 import New from "./pages/New";
 import Notfound from "./pages/Notfound.jsx";
 
+import { getEmotionImage } from "./util/get-emtion-image.js";
+
 function App() {
   const nav = useNavigate();
 
@@ -15,6 +17,13 @@ function App() {
   return (
     <>
       <div>
+        <img src={getEmotionImage(1)} />
+        <img src={getEmotionImage(2)} />
+        <img src={getEmotionImage(3)} />
+        <img src={getEmotionImage(4)} />
+        <img src={getEmotionImage(5)} />
+      </div>
+      <div>
         <Link to={"/"}>Home</Link>
         <Link to={"/new"}>New</Link>
         <Link to={"/diary"}>Diary</Link>
@@ -23,7 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/new" element={<New />}></Route>
-        <Route path="/diary" element={<Diary />}></Route>
+        <Route path="/diary/:id" element={<Diary />}></Route>
         <Route path="*" element={<Notfound />}></Route>
       </Routes>
     </>
